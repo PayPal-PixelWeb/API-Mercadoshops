@@ -76,6 +76,8 @@ app.get('/:marca', (req,res)=>{
     })
 })
 
-app.listen(3030, () =>{
+/* app.listen(3030, () =>{
     console.log('Oh, hi Mark');
-})
+}) */
+app.listen(process.env.PORT || 5000);
+console.log('Magic on 5000');
