@@ -86,5 +86,9 @@ module.exports = {
     "fox-racing":{
         "storeId": "140112203",
         "token"  : "TEST-2749670348975196-053115-e080c4f452b4588774f61e49cb238ca3-140112203"
+    },
+    "caminadoras":{
+        "storeId": "77709244",
+        "token"  : "TEST-7217103934088997-091212-64a4dd38cdbb5074498cd537b5ce88d9__LA_LC__-77709244"
     }
 }
