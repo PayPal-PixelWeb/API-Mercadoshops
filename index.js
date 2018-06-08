@@ -71,7 +71,7 @@ app.get('/:marca', (req,res)=>{
                 }
 
                 console.log(arr.length)
-                res.send({"result":arr})
+                res.send({"results":arr})
             })
     })
 })
