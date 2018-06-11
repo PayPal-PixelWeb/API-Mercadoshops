@@ -25,11 +25,12 @@ app.get('/api/v1/ordenes/:marca', (req,res)=>{
 */
 
 app.get('/:collection/:marca', (req,res)=>{
-
     request(`${baseURL}/${config[req.params.marca].storeId}/${req.params.collection}/search?access_token=${config[req.params.marca].token}`, (err, response, body) => {
         let b = JSON.parse(body);
-        let total = b.paging.total;
-        let paging = total/50;
+        let total;
+        req.query.limite?total=req.query.limite:total=b.paging.total;
+        let paging;
+        req.query.limite?paging=(total/50)-1:paging=total/50;
         let pagingTotal = paging.toFixed(0);
         console.log(pagingTotal)
         resultados = [];
