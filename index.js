@@ -24,9 +24,9 @@ app.get('/api/v1/ordenes/:marca', (req,res)=>{
 })
 */
 
-app.get('/:marca', (req,res)=>{
+app.get('/:collection/:marca', (req,res)=>{
 
-    request(`${baseURL}/${config[req.params.marca].storeId}/orders/search?access_token=${config[req.params.marca].token}`, (err, response, body) => {
+    request(`${baseURL}/${config[req.params.marca].storeId}/${req.params.collection}/search?access_token=${config[req.params.marca].token}`, (err, response, body) => {
         let b = JSON.parse(body);
         let total = b.paging.total;
         let paging = total/50;
@@ -42,7 +42,7 @@ app.get('/:marca', (req,res)=>{
             for(let i = 0; i<=pagingTotal; i++ ){
                console.log("página:" +i)
                //hacemos get y lo almacenamos en variable
-               let peticion =  rp.get(`${baseURL}/${config[req.params.marca].storeId}/orders/search?access_token=${config[req.params.marca].token}&offset=${offset}&limit=50`)
+               let peticion =  rp.get(`${baseURL}/${config[req.params.marca].storeId}/${req.params.collection}/search?access_token=${config[req.params.marca].token}&offset=${offset}&limit=50`)
                //guardamos esa variable en un arreglo
                 promesas.push(peticion);
                 //subimos el offset
