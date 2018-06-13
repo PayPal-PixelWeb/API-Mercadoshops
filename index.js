@@ -24,6 +24,11 @@ app.get('/api/v1/ordenes/:marca', (req,res)=>{
 })
 */
 
+//Necesito generar un offset
+//el offset va a ser un parámetro para comenzar
+//el offset va a multiplicarse por 50 para iterar en totales
+//si traigo un offset de 3000, el total va a ser b.paging.total - offset empezando por offset +1
+
 app.get('/:collection/:marca', (req,res)=>{
     request(`${baseURL}/${config[req.params.marca].storeId}/${req.params.collection}/search?access_token=${config[req.params.marca].token}`, (err, response, body) => {
         let b = JSON.parse(body);

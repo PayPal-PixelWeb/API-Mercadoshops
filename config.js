@@ -90,5 +90,9 @@ module.exports = {
     "caminadoras":{
         "storeId": "77709244",
         "token"  : "TEST-7217103934088997-091212-64a4dd38cdbb5074498cd537b5ce88d9__LA_LC__-77709244"
+    },
+    "triples":{
+        "storeId": "286995665",
+        "token"  : "TEST-3067511906506711-042717-1b614da889580dd2a87b65a271d0caac-286995665"
     }
 }
