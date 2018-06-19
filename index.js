@@ -42,10 +42,21 @@ app.get('/:collection/:marca', (req,res)=>{
         promesas = [];
 
         if(total%50 !== 0 || total%50 == 0){
+            //si tiene un req param de offset, se divide entre 50 y se suma 1
+            //ej, si el offset es de 3000 el offset original de MS = 3000/50 = 60
+            //así que empezamos desde la página 60 en adelante hasta el límite
             let offset = 0;
+            console.log(req.query.pagina?'hola':'no hay')
+            if(req.query.pagina){
+                offset = Number(req.query.limite)*req.query.pagina;
+            }else{
+                offset = 0;
+            }
+            console.log(`${baseURL}/${config[req.params.marca].storeId}/${req.params.collection}/search?access_token=${config[req.params.marca].token}&offset=${offset}&limit=50`)
 
             //iteramos en la paginación
             for(let i = 0; i<=pagingTotal; i++ ){
+                console.log('offset:'+offset)
                console.log("página:" +i)
                //hacemos get y lo almacenamos en variable
                let peticion =  rp.get(`${baseURL}/${config[req.params.marca].storeId}/${req.params.collection}/search?access_token=${config[req.params.marca].token}&offset=${offset}&limit=50`)
