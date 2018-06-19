@@ -88,7 +88,7 @@ app.get('/:collection/:marca', (req,res)=>{
                 }
 
                 console.log(arr.length)
-                res.send({"results":arr})
+                res.send({"total":b.paging.total,results:arr})
             })
     })
 })
