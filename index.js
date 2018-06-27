@@ -37,7 +37,7 @@ app.get('/:collection/:marca', (req,res)=>{
         let paging;
         req.query.limite?paging=(total/50)-1:paging=total/50;
         let pagingTotal = paging.toFixed(0);
-        console.log(pagingTotal)
+        console.log("Paging:"+pagingTotal)
         resultados = [];
         promesas = [];
 
@@ -48,7 +48,7 @@ app.get('/:collection/:marca', (req,res)=>{
             let offset = 0;
             console.log(req.query.pagina?'hola':'no hay')
             if(req.query.pagina){
-                offset = Number(req.query.limite)*req.query.pagina;
+                offset = Number(req.query.limite)*Number(req.query.pagina);
             }else{
                 offset = 0;
             }
@@ -59,7 +59,7 @@ app.get('/:collection/:marca', (req,res)=>{
                 console.log('offset:'+offset)
                console.log("página:" +i)
                //hacemos get y lo almacenamos en variable
-               let peticion =  rp.get(`${baseURL}/${config[req.params.marca].storeId}/${req.params.collection}/search?access_token=${config[req.params.marca].token}&offset=${offset}&limit=50`)
+               let peticion =  rp.get(`${baseURL}/${config[req.params.marca].storeId}/${req.params.collection}/search?offset=${offset}&limit=50&access_token=${config[req.params.marca].token}`)
                //guardamos esa variable en un arreglo
                 promesas.push(peticion);
                 //subimos el offset
