@@ -94,5 +94,9 @@ module.exports = {
     "triples":{
         "storeId": "286995665",
         "token"  : "TEST-3067511906506711-042717-1b614da889580dd2a87b65a271d0caac-286995665"
+    },
+    "gosh":{
+        "storeId": "258052009",
+        "token"  : "TEST-3811732963817397-061419-cc6629354581dd79c4a9aabe093a47bc__LD_LA__-258052009"
     }
 }
